@@ -73,7 +73,6 @@ This project demonstrates:
 Catherine Adel Zaki Gaballah
 
 ## License
- ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
 
