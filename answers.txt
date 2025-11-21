@@ -1,0 +1,91 @@
+Exercise 1: Process Creation using fork()
+
+Code:
+#include <stdio.h>
+#include <unistd.h>
+
+int main() {
+pid_t pid = fork();
+if (pid == 0) {
+printf("This is the child process. PID: %d\n", getpid());
+} else if (pid > 0) {
+printf("This is the parent process. PID: %d\n", getpid());
+} else {
+printf("Fork failed!\n");
+}
+return 0;
+}
+
+Explanation:
+The fork() system call is used to create a new process.
+The child process receives a return falue of 0 , while the parent receives the child's PID.
+If fork fails, it returns -1.
+THis demonstrates how operating system create and manage processes.
+
+Exercise 2, 3, 4: Managing Processes
+
+Commands:
+sleep 300 &, sleep 200 & : Starts a process in the background
+jobs :  List of background jobs currently running.
+ps aux | grep sleep : ps aux: lists processes and their IDs.
+                      grep sleep :  Finds the PID of the sleep process
+kill <PID> :  Terminates the process by sending a termination signal to its PID
+kill -STOP <PID> :  Pauses the process
+kill -CONT <PID> :  Resumes the process
+
+
+Exercise 5: Role of the Linker
+
+File 1: file1.c
+#include <stdio.h>
+void hello() {
+printf("Hello from file1!\n");
+}
+
+File 2: file2.c
+void hello();
+int main() {
+hello();
+return 0;
+}
+
+Explanation:
+The linker combines multiple object files into a single executable. In this
+example, file2.c calls the function hello(), which is defined in file1.c.
+The compiler produces object files, and the linker resolves the external
+symbol hello() by connecting the declaration in file2.c with the definition
+in file1.c. Modifying file1.c and recompiling changes the final executable,
+demonstrating the linker’s role in symbol resolution and program integration.
+
+
+Exercise 6: Role of the Loader
+
+Code:
+#include <stdio.h>
+int main() {
+printf("This is a simple program.\n");
+return 0;
+}
+
+Commands:
+gcc simple_program.c -o simple_program
+ldd simple_program
+ldd output_program
+ldd process_creation 
+
+Explanation:
+The loader loads the program into memory and prepares it for execution.
+ It also maps required shared libraries(like libc).
+ Running ldd shows which libraries are loaded at runtime.
+This demonstrates how the loader ensures the program runs correctly.
+
+
+
+Question: What is the job of the Linker?
+The linker’s job is to combine object files into one executable and resolve external
+symbols between files.
+
+
+Question: What is the job of the Loader?
+The loader’s job is to load the executable and its libraries into memory, 
+resolve dynamic symbols, and start execution at the program’s entry point (main).
