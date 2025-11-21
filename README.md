@@ -39,30 +39,35 @@ This project demonstrates:
  
 ## Usage
 - Run using gcc
- ```bash
- # run fork()
- gcc process_creation.c -o process_creation
- ./process_creation
 
- ```bash
- # Run linker
- gcc file1.c file2.c -o output_program
- ./output_creation
+- Run fork()
+  ```bash
+  gcc process_creation.c -o process_creation
+  ./process_creation
 
- ```bash
- # Run inspect loader output
- gcc simple_program -o simple_program
- ./simple_program
+- Run linker
+  ```bash
+  gcc file1.c file2.c -o output_program
+  ./output_creation
 
-- Run executables after building:
+- Run inspect loader output
+  ```bash
+  gcc simple_program -o simple_program
+  ./simple_program
+
+- Run Makefile :
   ```bash
   make
- ```bash
- ./process_creation
- ```bash
- ./output_program
- ```bash
- ldd simple_program
+- Run executables after building:
+- Run fork()
+  ```bash
+  ./process_creation
+- Run linker()
+  ```bash
+  ./output_program
+- Run loader ()
+  ```bash
+  ldd simple_program
 
 ## Authors
 Catherine Adel Zaki Gaballah
